@@ -1,0 +1,56 @@
+/* ===== FORM CARD ===== */
+.form-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== BUTTONS ===== */
+.btn-custom {
+  padding: 10px 22px;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  transform: scale(1.07);
+}
+
+/* ===== TABLE ===== */
+.table-modern {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.table-modern thead {
+  background: #0d6efd !important;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table-modern tbody tr {
+  transition: 0.2s;
+}
+
+.table-modern tbody tr:hover {
+  background: #e8f1ff;
+  cursor: pointer;
+}
+
+/* ===== MESSAGE ===== */
+.message-box {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
