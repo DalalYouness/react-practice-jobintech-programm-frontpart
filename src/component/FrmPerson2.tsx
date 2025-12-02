@@ -1,14 +1,8 @@
 import React, { useState, type FormEvent, useEffect } from "react";
 import axios from "axios";
 import "./style.css"; // IMPORTANT : ajoute ce fichier
-
-interface Person {
-  id: number;
-  nom: string;
-  birthDate: string;
-}
-
-const URL: string = "http://localhost:8060/api/personnes";
+import type { Person } from "../types/Person";
+import { createPerson, getAllPersons, getPersonById } from "./api/PersonApi";
 
 const FrmPerson2 = () => {
   const [nom, setNom] = useState("");
@@ -22,7 +16,7 @@ const FrmPerson2 = () => {
 
     if (editID == null) {
       try {
-        await axios.post(`${URL}/ajouter`, { nom, birthDate });
+        await createPerson({ nom, birthDate });
         setMessage("Ajouté avec succès !");
       } catch (err) {
         setMessage("Erreur lors de l'ajout");
@@ -43,12 +37,14 @@ const FrmPerson2 = () => {
   };
 
   const loadPersons = async () => {
-    try {
-      const resp = await axios.get(URL);
-      setPersons(resp.data);
-    } catch (err) {
-      console.error("Erreur lors du chargement des personnes", err);
-    }
+    // try {
+    //   const resp = await axios.get(URL);
+    //   setPersons(resp.data);
+    // } catch (err) {
+    //   console.error("Erreur lors du chargement des personnes", err);
+    // }
+    // apres refactoring avec PersonApi.ts
+    setPersons(await getAllPersons());
   };
 
   useEffect(() => {
@@ -64,8 +60,10 @@ const FrmPerson2 = () => {
   };
 
   const handleEdit = async (id: number) => {
-    const resp = await axios.get(`${URL}/${id}`);
-    const p: Person = resp.data;
+    // const resp = await axios.get(`${URL}/${id}`);
+    // const p: Person = resp.data;
+    // apres refactoring avec PersonApi.ts
+    const p: Person = await getPersonById(id);
     seteditID(p.id);
     setNom(p.nom);
     setBirthDate(p.birthDate);

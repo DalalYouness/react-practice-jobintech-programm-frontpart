@@ -2,10 +2,10 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import FrmPerson2 from "./component/FrmPerson2.tsx";
+import App3 from "./component/api/App3.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <FrmPerson2 />
+    <App3 />
   </StrictMode>
 );
